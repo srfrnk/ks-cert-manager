@@ -56,6 +56,7 @@ k.core.v1.list.new([
           targetPort: 80,
         },
       ],
+      type: 'NodePort',
     },
   },
 ])
