@@ -7,27 +7,34 @@ minikube start
 minikube addons enable ingress
 ```
 
+```bash
+ks env set cluster --server=https://$(minikube ip):8443
+```
+
+## GKE setup
+Replace `<CLUSTER_EP_IP>` with the cluster Endpoint IP:
+```bash
+ks env set cluster --server=https://<CLUSTER_EP_IP>
+```
+
 ## Deploy
+
 ```bash
-ks env set minikube --server=https://$(minikube ip):8443
+ks apply cluster -c cert-manager
 ```
 
 ```bash
-ks apply minikube -c cert-manager
+ks apply cluster -c letsencrypt-staging
 ```
 
 ```bash
-ks apply minikube -c letsencrypt-staging
-```
-
-```bash
-ks apply minikube -c example-app
+ks apply cluster -c example-app
 ```
 
  - Edit the file [ingress-tls-staging](./components/ingress-tls-staging.jsonnet)
  - Replace `www.my-example.com` with your own domain (must be setup so DNS can find it).
 ```bash
-ks apply minikube -c ingress-tls-staging
+ks apply cluster -c ingress-tls-staging
 ```
 
 Check status:
@@ -49,13 +56,13 @@ xdg-open https://www.my-example.com
 ## Prod
 
 ```bash
-ks apply minikube -c letsencrypt-prod
+ks apply cluster -c letsencrypt-prod
 ```
 
  - Edit the file [ingress-tls-prod](./components/ingress-tls-prod.jsonnet)
  - Replace `www.my-example-prod.com` with your own domain (must be setup so DNS can find it).
 ```bash
-ks apply minikube -c ingress-tls-prod
+ks apply cluster -c ingress-tls-prod
 ```
 
 **Replace `www.my-example-prod.com` with your own domain**

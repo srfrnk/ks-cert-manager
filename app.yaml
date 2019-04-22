@@ -1,17 +1,11 @@
 apiVersion: 0.3.0
 environments:
-  dev:
-    destination:
-      namespace: default
-      server: https://34.73.2.149
-    k8sVersion: v1.10.0
-    path: dev
-  minikube:
+  cluster:
     destination:
       namespace: default
       server: https://192.168.39.136:8443
     k8sVersion: v1.10.0
-    path: minikube
+    path: cluster
 kind: ksonnet.io/app
 name: cert-manager
 registries:
