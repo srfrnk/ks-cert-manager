@@ -1,5 +1,5 @@
 local env = std.extVar('__ksonnet/environments');
-local params = std.extVar('__ksonnet/params').components['ingress-tls'];
+local params = std.extVar('__ksonnet/params').components['ingress-tls-staging'];
 {
   apiVersion: 'extensions/v1beta1',
   kind: 'Ingress',
@@ -9,20 +9,20 @@ local params = std.extVar('__ksonnet/params').components['ingress-tls'];
       'certmanager.k8s.io/cluster-issuer': 'letsencrypt-staging',
       'kubernetes.io/ingress.class': 'nginx',
     },
-    name: 'ingress',
+    name: 'ingress-staging',
   },
   spec: {
     rules: [
       {
-        host: 'www.example.com',
+        host: 'www.my-example.com',
         http: {
           paths: [
             {
+              path: '/',
               backend: {
-                serviceName: 'my-service',
+                serviceName: 'example-service',
                 servicePort: 80,
               },
-              path: '/',
             },
           ],
         },
@@ -31,7 +31,7 @@ local params = std.extVar('__ksonnet/params').components['ingress-tls'];
     tls: [
       {
         hosts: [
-          'www.example.com',
+          'www.my-example.com',
         ],
         secretName: 'example-secret',
       },
