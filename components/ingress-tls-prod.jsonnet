@@ -20,7 +20,7 @@ local params = std.extVar('__ksonnet/params').components['ingress-tls-prod'];
         http: {
           paths: [
             {
-              path: '/',
+              // path: '/',
               backend: {
                 serviceName: 'example-service',
                 servicePort: 80,
