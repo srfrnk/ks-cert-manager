@@ -1,5 +1,7 @@
 # KS-CERT-MANAGER
 
+Easy install for cert-manager on K8S (Kubernetes) using KS (Ksonnet) to allow automatic SSL certificate issuing for your HTTPS API servers.
+
 ## Minikube setup
 
 ```bash
