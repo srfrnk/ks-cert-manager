@@ -2,6 +2,14 @@
 
 Easy install for cert-manager on K8S (Kubernetes) using KS (Ksonnet) to allow automatic SSL certificate issuing for your HTTPS API servers.
 
+## Quick Setup and Deployment
+
+This shortcut is for people acquainted with K8S.
+If you are less comfortable please skip this section and read the rest of the README.
+
+- Connect to your K8S cluster via kubectl
+- Run `kubectl apply -f https://raw.githubusercontent.com/srfrnk/ks-cert-manager/master/dist/ks-cert-manager.json`
+
 ## Minikube setup
 
 ```bash
@@ -32,7 +40,6 @@ gcloud --project=<PROJECT_NAME> compute addresses create <GCE_STATIC_IP_NAME> --
 ```
 
 Add to ingress annotations `'kubernetes.io/ingress.global-static-ip-name': '<GCE_STATIC_IP_NAME>',`
-
 
 ## Deploy
 
