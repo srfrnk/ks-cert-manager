@@ -8,7 +8,10 @@ This shortcut is for people acquainted with K8S.
 If you are less comfortable please skip this section and read the rest of the README.
 
 - Connect to your K8S cluster via kubectl
-- Run `kubectl apply -f https://raw.githubusercontent.com/srfrnk/ks-cert-manager/master/dist/ks-cert-manager.json`
+- Run:
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/srfrnk/ks-cert-manager/master/dist/ks-cert-manager.json
+```
 
 ## Minikube setup
 
